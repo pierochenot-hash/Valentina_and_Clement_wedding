@@ -1,2 +1,2 @@
 # Valentina & Clément's wedding
-# Weblinks to celebration video to follow
+# Weblinks to celebration's videos to follow
