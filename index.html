@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Valentina and Clément's Wedding</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f4f1;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.countdown {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.countdown-title {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.time-box {
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.time-value {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.time-label {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.video-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: white;
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-2px);
+}
+
+.video-title {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.video-desc {
+    color: #666;
+    margin-top: 5px;
+}
+
+.footer {
+    text-align: center;
+    color: #888;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+    .time-value {
+        font-size: 1.4em;
+    }
+
+    h1 {
+        font-size: 1.7em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="image.jpg" alt="Wedding photo" class="hero-image">
+
+    <h1>Valentina and Clément's Wedding</h1>
+
+    <p class="subtitle">
+        Welcome! Wedding videos will be available here.
+    </p>
+
+    <div class="countdown">
+        <div class="countdown-title">
+            Countdown to 19 September 2026
+        </div>
+
+        <div class="time-grid">
+            <div class="time-box">
+                <div id="days" class="time-value">0</div>
+                <div class="time-label">Days</div>
+            </div>
+
+            <div class="time-box">
+                <div id="hours" class="time-value">0</div>
+                <div class="time-label">Hours</div>
+            </div>
+
+            <div class="time-box">
+                <div id="minutes" class="time-value">0</div>
+                <div class="time-label">Minutes</div>
+            </div>
+
+            <div class="time-box">
+                <div id="seconds" class="time-value">0</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+    <a class="video-card" href="https://freepacman.org/" target="_blank">
+        <div class="video-title">📹 Wedding Video #1</div>
+        <div class="video-desc">Coming soon</div>
+    </a>
+
+    <a class="video-card" href="https://freepacman.org/" target="_blank">
+        <div class="video-title">📹 Wedding Video #2</div>
+        <div class="video-desc">Coming soon</div>
+    </a>
+
+    <a class="video-card" href="https://freepacman.org/" target="_blank">
+        <div class="video-title">📹 Wedding Video #3</div>
+        <div class="video-desc">Coming soon</div>
+    </a>
+
+    <div class="footer">
+        Thank you for celebrating with us ❤️
+    </div>
+
+</div>
+
+<script>
+const targetDate = new Date("2026-09-19T00:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60))
+        / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60))
+        / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
